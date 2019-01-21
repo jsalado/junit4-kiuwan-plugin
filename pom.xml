@@ -11,7 +11,7 @@
 
 	<name>junit4-kiuwan-plugin</name>
 	<description>A simple junit4-kiuwan-plugin.</description>
-	<url>http://www.example.com</url>
+	<url>https://github.com/mcprol/junit4-kiuwan-plugin</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

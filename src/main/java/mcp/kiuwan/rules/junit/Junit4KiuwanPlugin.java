@@ -59,7 +59,6 @@ public class Junit4KiuwanPlugin extends AbstractRule {
 	private String JUNIT_REPORT_PREFIX = "TEST-";
 	
 	private String junitReportsDirectory = "../target/surefire-reports";
-	private double maxTestElapsedTime = 2.0; // seconds
 	private String junitReportsBaseDir;
 	
 
@@ -181,7 +180,11 @@ public class Junit4KiuwanPlugin extends AbstractRule {
 		private void addSlowTestViolation() {
 			Rule rule = ctx.getRules().getRuleByName("CUS.MCP.KIUWAN.RULES.JUNIT.SlowTest");
 			if (null != rule) {
-				if (Double.parseDouble(time) > maxTestElapsedTime) {
+				double elapsedTime = Double.parseDouble(time);
+				double maxTestElapsedTime = rule.getDoubleProperty("maxTestElapsedTime");
+				logger.debug("addSlowTestViolation(" + elapsedTime + ", " + maxTestElapsedTime + ")");
+				
+				if (elapsedTime > maxTestElapsedTime) {
 					RuleViolation rv = new RuleViolation(rule, lineNumber, file);
 					rv.setCodeViolated(testName);
 					rv.setExplanation("time: " + time);
