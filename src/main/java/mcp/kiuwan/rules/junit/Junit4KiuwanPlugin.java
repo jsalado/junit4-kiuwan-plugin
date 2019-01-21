@@ -24,7 +24,6 @@ package mcp.kiuwan.rules.junit;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -57,17 +56,14 @@ public class Junit4KiuwanPlugin extends AbstractRule {
 	private final static Logger logger = Logger.getLogger(Junit4KiuwanPlugin.class);
 
 	private String JUNIT_REPORT_PREFIX = "TEST-";
-	
-	private String junitReportsDirectory = "../target/surefire-reports";
 	private String junitReportsBaseDir;
 	
-
 	public void initialize (RuleContext ctx) { 
 		super.initialize(ctx);	
 		
 		// calculates junit reports directory.
 		File baseDir = ctx.getBaseDirs().get(0);
-		junitReportsBaseDir = new File(baseDir, junitReportsDirectory).getAbsolutePath();
+		junitReportsBaseDir = baseDir.getAbsolutePath();
 		
 		logger.debug("initialize: " +  this.getName() + " : " + junitReportsBaseDir);
 	}
@@ -86,14 +82,16 @@ public class Junit4KiuwanPlugin extends AbstractRule {
 		
 		// iterates over junit reports files.
 		try {
-			DirectoryStream<Path> newDirectoryStream = Files.newDirectoryStream(Paths.get(junitReportsBaseDir), JUNIT_REPORT_PREFIX + "*");
-			newDirectoryStream.forEach(p -> {
-				try {
-					processJunitReportFile(ctx, p);
-				} catch (ParserConfigurationException | SAXException | IOException e) {
-					logger.error("Error parsing file " + p.getFileName() + ". ", e);
-				}
-			});
+			Files.walk(Paths.get(junitReportsBaseDir))
+				.filter(Files::isRegularFile)
+				.filter(p -> p.getFileName().toString().startsWith(JUNIT_REPORT_PREFIX))
+				.forEach(p -> {
+					try {
+						processJunitReportFile(ctx, p);
+					} catch (ParserConfigurationException | SAXException | IOException e) {
+						logger.error("Error parsing file " + p.getFileName() + ". ", e);
+					}
+				});
 		} catch (IOException e) {
 			logger.error("", e);
 		}
@@ -205,7 +203,6 @@ public class Junit4KiuwanPlugin extends AbstractRule {
 				ctx.getReport().addRuleViolation(rv);			
 			}
 		}
-
 	}
 }
 

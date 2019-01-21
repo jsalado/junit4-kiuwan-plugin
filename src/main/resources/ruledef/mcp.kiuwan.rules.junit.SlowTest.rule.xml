@@ -35,7 +35,12 @@
 				</benefits>
 				<drawbacks><![CDATA[]]>
 				</drawbacks>
-				<parameters></parameters>
+				<parameters>
+					<parameter ref="maxTestElapsedTime">
+						<name><![CDATA[maxTestElapsedTime]]></name>
+						<description><![CDATA[Threshold (in seconds) for the duration of a test execution]]></description>
+					</parameter>
+				</parameters>
 				<code-examples></code-examples>
 			</i18n>
 		</i18ns>
