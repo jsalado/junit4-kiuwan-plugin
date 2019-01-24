@@ -56,7 +56,7 @@ public class Junit4KiuwanPluginTest
    /**
      * the bad test :-(
      */
-    @Test
+    //@Test
     public void failedTest()
     {
         assertEquals(1, 0);
@@ -65,7 +65,7 @@ public class Junit4KiuwanPluginTest
    /**
      * the bad test :-(
      */
-    @Test
+    //@Test
     public void failedAndSlowTest()
     {
     	try {
