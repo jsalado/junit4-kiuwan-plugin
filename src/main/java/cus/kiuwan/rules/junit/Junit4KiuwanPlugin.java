@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package mcp.kiuwan.rules.junit;
+package cus.kiuwan.rules.junit;
 
 import java.io.File;
 import java.io.IOException;
@@ -176,7 +176,7 @@ public class Junit4KiuwanPlugin extends AbstractRule {
 		
 
 		private void addSlowTestViolation() {
-			Rule rule = ctx.getRules().getRuleByName("CUS.MCP.KIUWAN.RULES.JUNIT.SlowTest");
+			Rule rule = ctx.getRules().getRuleByName("CUS.KIUWAN.RULES.JUNIT.SlowTest");
 			if (null != rule) {
 				double elapsedTime = Double.parseDouble(time);
 				double maxTestElapsedTime = rule.getDoubleProperty("maxTestElapsedTime");
@@ -194,7 +194,7 @@ public class Junit4KiuwanPlugin extends AbstractRule {
 
 		
 		private void addFailedTestViolation() {
-			Rule rule = ctx.getRules().getRuleByName("CUS.MCP.KIUWAN.RULES.JUNIT.TestFailed");
+			Rule rule = ctx.getRules().getRuleByName("CUS.KIUWAN.RULES.JUNIT.TestFailed");
 			if (null != rule) {
 				RuleViolation rv = new RuleViolation(rule, lineNumber, file);
 				rv.setCodeViolated(testName);

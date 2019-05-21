@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-	<rule id="CUS.MCP.KIUWAN.RULES.COBERTURA.Plugin">
-		<java-class>mcp.kiuwan.rules.junit.CoberturaKiuwanPlugin</java-class>
+	<rule id="CUS.KIUWAN.RULES.COBERTURA.ClassCoverage">
+		<java-class>com.als.core.NullRule</java-class>
 		<java-version>1.8</java-version>
 		<tags></tags>
 
-		<parameters></parameters>
+		<parameters>
+			<parameter editable="true" id="threshold">
+				<default-value><![CDATA[3.0]]></default-value>
+			</parameter>
+		</parameters>
 
 		<incompatibilities />
 
@@ -14,7 +18,7 @@
 
 		<criteria-values>
 			<criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.JAVA" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.VERY_LOW" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.HIGH" />
 			<criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW" />
 			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY" />
 			<criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.QAKING" />
@@ -23,15 +27,20 @@
 
 		<i18ns>
 			<i18n ref="OPT.LANGUAGE.ENGLISH">
-				<name><![CDATA[Cobertura Plugin]]></name>
+				<name><![CDATA[Cobertura class coverage]]></name>
 				<message><![CDATA[]]>
 				</message>
-				<description><![CDATA[This rule works as a factory to generate 'Cobertura' coverage violations]]></description>
+				<description><![CDATA[Generates violation when the coverage for this class is under a threshold]]></description>
 				<benefits><![CDATA[]]>
 				</benefits>
 				<drawbacks><![CDATA[]]>
 				</drawbacks>
-				<parameters></parameters>
+				<parameters>
+					<parameter ref="threshold">
+						<name><![CDATA[threshold]]></name>
+						<description><![CDATA[Threshold for class coverage]]></description>
+					</parameter>
+				</parameters>
 				<code-examples></code-examples>
 			</i18n>
 		</i18ns>

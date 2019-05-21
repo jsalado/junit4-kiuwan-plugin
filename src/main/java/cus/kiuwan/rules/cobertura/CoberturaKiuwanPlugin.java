@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package mcp.kiuwan.rules.junit;
+package cus.kiuwan.rules.cobertura;
 
 import java.io.File;
 import java.io.IOException;
@@ -151,7 +151,7 @@ public class CoberturaKiuwanPlugin extends AbstractRule {
 		
 
 		private void addClassCoverageViolation(String name, String filename, String linerate) {
-			Rule rule = ctx.getRules().getRuleByName("CUS.MCP.KIUWAN.RULES.COBERTURA.ClassCoverage");
+			Rule rule = ctx.getRules().getRuleByName("CUS.KIUWAN.RULES.COBERTURA.ClassCoverage");
 			if (null != rule) {
 				double rate = Double.parseDouble(linerate);
 				double threshold = rule.getDoubleProperty("threshold");

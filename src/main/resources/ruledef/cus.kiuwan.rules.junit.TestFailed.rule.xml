@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-	<rule id="CUS.MCP.KIUWAN.RULES.JUNIT.SlowTest">
+	<rule id="CUS.KIUWAN.RULES.JUNIT.TestFailed">
 		<java-class>com.als.core.NullRule</java-class>
 		<java-version>1.8</java-version>
 		<tags></tags>
 
-		<parameters>
-			<parameter editable="true" id="maxTestElapsedTime">
-				<default-value><![CDATA[3.0]]></default-value>
-			</parameter>
-		</parameters>
+		<parameters></parameters>
 
 		<incompatibilities />
 
@@ -18,7 +14,7 @@
 
 		<criteria-values>
 			<criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.JAVA" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.HIGH" />
+			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.VERY_HIGH" />
 			<criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW" />
 			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY" />
 			<criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.QAKING" />
@@ -27,20 +23,15 @@
 
 		<i18ns>
 			<i18n ref="OPT.LANGUAGE.ENGLISH">
-				<name><![CDATA[JUnit slow test]]></name>
+				<name><![CDATA[JUnit test failed]]></name>
 				<message><![CDATA[]]>
 				</message>
-				<description><![CDATA[Generates violation when the test execution time exceeds a threshold]]></description>
+				<description><![CDATA[A JUnit test has failed]]></description>
 				<benefits><![CDATA[]]>
 				</benefits>
 				<drawbacks><![CDATA[]]>
 				</drawbacks>
-				<parameters>
-					<parameter ref="maxTestElapsedTime">
-						<name><![CDATA[maxTestElapsedTime]]></name>
-						<description><![CDATA[Threshold (in seconds) for the duration of a test execution]]></description>
-					</parameter>
-				</parameters>
+				<parameters></parameters>
 				<code-examples></code-examples>
 			</i18n>
 		</i18ns>

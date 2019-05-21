@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-	<rule id="CUS.MCP.KIUWAN.RULES.JUNIT.Plugin">
-		<java-class>mcp.kiuwan.rules.junit.Junit4KiuwanPlugin</java-class>
+	<rule id="CUS.KIUWAN.RULES.JUNIT.Plugin">
+		<java-class>cus.kiuwan.rules.junit.Junit4KiuwanPlugin</java-class>
 		<java-version>1.8</java-version>
 		<tags></tags>
 
