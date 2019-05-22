@@ -7,11 +7,11 @@
 
 	<groupId>cus.kiuwan</groupId>
 	<artifactId>junit4-kiuwan-plugin</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0</version>
 
 	<name>junit4-kiuwan-plugin</name>
 	<description>A simple junit4-kiuwan-plugin.</description>
-	<url>https://github.com/mcprol/junit4-kiuwan-plugin</url>
+	<url>https://github.com/jsalado/junit4-kiuwan-plugin</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,16 +67,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-		</plugins>
-	</build>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.7</version>
-			</plugin>
-
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>cobertura-maven-plugin</artifactId>
@@ -88,6 +78,16 @@
 					</formats>
 				</configuration>
 			</plugin>		
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+
 		</plugins>
 	</reporting>
 </project>

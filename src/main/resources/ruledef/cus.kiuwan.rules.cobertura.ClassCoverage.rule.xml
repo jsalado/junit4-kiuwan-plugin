@@ -1,49 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <rule-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.optimyth.com/schema/definitions/rule" version="1.0">
-	<rule id="CUS.KIUWAN.RULES.COBERTURA.ClassCoverage">
-		<java-class>com.als.core.NullRule</java-class>
-		<java-version>1.8</java-version>
-		<tags></tags>
-
-		<parameters>
-			<parameter editable="true" id="threshold">
-				<default-value><![CDATA[3.0]]></default-value>
-			</parameter>
-		</parameters>
-
-		<incompatibilities />
-
-		<related-rules />
-
-		<criteria-values>
-			<criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.JAVA" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.HIGH" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.QAKING" />
-			<criterium-value ref="OPT.CRITERIUM_VALUE.VULNERABILITY_TYPE.OTHER"/>
-		</criteria-values>
-
-		<i18ns>
-			<i18n ref="OPT.LANGUAGE.ENGLISH">
-				<name><![CDATA[Cobertura class coverage]]></name>
-				<message><![CDATA[]]>
-				</message>
-				<description><![CDATA[Generates violation when the coverage for this class is under a threshold]]></description>
-				<benefits><![CDATA[]]>
-				</benefits>
-				<drawbacks><![CDATA[]]>
-				</drawbacks>
-				<parameters>
-					<parameter ref="threshold">
-						<name><![CDATA[threshold]]></name>
-						<description><![CDATA[Threshold for class coverage]]></description>
-					</parameter>
-				</parameters>
-				<code-examples></code-examples>
-			</i18n>
-		</i18ns>
-
-	</rule>
+  <rule id="CUS.KIUWAN.RULES.COBERTURA.ClassCoverage">
+    <java-class>com.als.core.NullRule</java-class>
+    <java-version>1.8</java-version>
+    <tags>Cobertura,Test Coverage</tags>
+    <reference><![CDATA[https://cobertura.github.io/cobertura/]]></reference>
+    <reference><![CDATA[http://www.mojohaus.org/cobertura-maven-plugin/]]></reference>
+    <parameters>
+      <parameter id="threshold" editable="true">
+        <default-value><![CDATA[3.0]]></default-value>
+      </parameter>
+    </parameters>
+    <code-examples>
+      <code-example id="codeExample">
+        <ko><![CDATA[<class name="cus.kiuwan.rules.cobertura.CoberturaKiuwanPlugin" filename="cus/kiuwan/rules/cobertura/CoberturaKiuwanPlugin.java" line-rate="0.0" branch-rate="1.0" complexity="0.0">
+Line rate covered by tests is 0, below any threshold]]></ko>
+        <ok><![CDATA[<class name="cus.kiuwan.rules.cobertura.CoberturaKiuwanPlugin" filename="cus/kiuwan/rules/cobertura/CoberturaKiuwanPlugin.java" line-rate="4.0" branch-rate="1.0" complexity="0.0">
+Line rate covered by tests is 4, above the default threshold]]></ok>
+      </code-example>
+    </code-examples>
+    <incompatibilities/>
+    <related-rules/>
+    <criteria-values>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.LANGUAGE_PARSER.JAVA"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.PRIORITY.HIGH"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.REPAIR_DIFFICULTY.LOW"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.CQM.MAINTAINABILITY"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.ENGINE.QAKING"/>
+      <criterium-value ref="OPT.CRITERIUM_VALUE.VULNERABILITY_TYPE.OTHER"/>
+    </criteria-values>
+    <i18ns>
+      <i18n ref="OPT.LANGUAGE.ENGLISH">
+        <name><![CDATA[Cobertura test coverage for a class]]></name>
+        <description><![CDATA[Generates violation when the coverage for a class is under a specified threshold]]></description>
+        <remediation><![CDATA[Develop more specific unit or integration tests for the class]]></remediation>
+        <configuration><![CDATA[]]></configuration>
+        <benefits><![CDATA[
+				]]></benefits>
+        <drawbacks><![CDATA[
+				]]></drawbacks>
+        <parameters>
+          <parameter ref="threshold">
+            <name><![CDATA[Minimum class coverage rate]]></name>
+            <description><![CDATA[Class coverage rate threshold]]></description>
+          </parameter>
+        </parameters>
+      </i18n>
+    </i18ns>
+  </rule>
 </rule-definition>

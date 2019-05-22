@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-package mcp.kiuwan.rules.junit;
+package cus.kiuwan.rules.junit;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class Junit4KiuwanPluginTest
      * the good test :-)
      */
     @Test
-    public void successfullyTest()
+    public void successfullTest()
     {
         assertEquals(1, 1);
     }
@@ -43,7 +43,7 @@ public class Junit4KiuwanPluginTest
      * the good, but slow, test :-)
      */
     @Test
-    public void successfullyAndSlowTest()
+    public void successfullAndSlowTest()
     {
     	try {
 			Thread.sleep(5000);
@@ -56,7 +56,7 @@ public class Junit4KiuwanPluginTest
    /**
      * the bad test :-(
      */
-    //@Test
+    @Test
     public void failedTest()
     {
         assertEquals(1, 0);
@@ -65,7 +65,7 @@ public class Junit4KiuwanPluginTest
    /**
      * the bad test :-(
      */
-    //@Test
+    @Test
     public void failedAndSlowTest()
     {
     	try {

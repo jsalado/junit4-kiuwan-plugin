@@ -4,16 +4,21 @@ Integrates junit4 and cobertura reports into Kiuwan.
 This plugin (a kiuwan rule) parses junit4/cobertura reports.
 
 The following are the checkers (rules) implemented:
-1. **JUnit slow test.** Generates violation when the test execution time exceeds a threshold.
-1. **JUnit test failed.** A JUnit test has failed.
-1. **Cobertura class coverage.
+1. **JUnit slow test.** Reports a violation when the test execution time exceeds a threshold.
+2. **JUnit test failed.** Reports a vialation when a JUnit test fails.
+3. **Cobertura class coverage** Reports a viaolation when a class has coverage rate lower than a specified threshold.
 
-## how to compile.
+## How to compile
 1. From your Kiuwan Local Analyzer installation copy the {KIUWAN_LOCAL_ANALYZER_INSTALLATION_DIR}/lib.engine/analyzer.jar in junit4-kiuwan-plugin/libext/kiuwan-kla-dependencies/analyzer/0.0.0/analyzer-0.0.0.jar
-1. At junit4-kiuwan-plugin directory, run (the junit tests in this project are dummy test, so skip them): 
-	mvn clean install
+2. At junit4-kiuwan-plugin directory, run (the junit tests in this project are dummy test, so skip we them to build the deployment artifact jar file. THey will run later when running Cobertura targets): 
+	mvn -DskipTests clean install
+3. Run maven Cobertura plugin target to generate Junit and cobertura xml report files (TEST-cus.kiuwan.rules.junit.Junit4KiuwanPluginTest.xml and cobertura.xml)
 
-## how to deploy.
-1. copy junit4-kiuwan-plugin/target/junit4-kiuwan-plugin-x.y.z.jar to {KIUWAN_LOCAL_ANALYZER_INSTALLATION_DIR}/lib.custom
-1. install junit4-kiuwan-plugin/src/main/resources/ruledef files in your kiuwan account. See more on this at https://www.kiuwan.com/docs/display/K5/Installing+rule+definitions+created+with+Kiuwan+Rule+Developer
+## How to deploy
+1. Copy junit4-kiuwan-plugin/target/junit4-kiuwan-plugin-x.y.z.jar to {KIUWAN_LOCAL_ANALYZER_INSTALLATION_DIR}/lib.custom
+2. Install junit4-kiuwan-plugin/src/main/resources/ruledef files in your kiuwan account. See [more on this](https://www.kiuwan.com/docs/display/K5/Installing+rule+definitions+created+with+Kiuwan+Rule+Developer "Install rule definitions") in the Kiuwan documentation. 
 
+## How to run
+You can use this project test run the JUnit a Cobertura plugins for Kiuwan
+1. Download or clone this repo to a local machine where you have the KLA installed
+2. Run an analysis on the junit4-kiuwan-plugin drectory using the KLA. More on [how to use the KLA](https://www.kiuwan.com/docs/display/K5/Code+analysis+using+the+downloaded+agent "Kiuwan Local Analyzer") in the Kiuwan documentation.
